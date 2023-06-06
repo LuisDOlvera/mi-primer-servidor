@@ -26,16 +26,18 @@ server.delete("/hola", (request, response) => {
     response.end();
 });
 
-//Prender el Servidor (lo vamos a "escuchar")
-server.listen(8080, () => {
-    console.log("Nuestro servidor está prendido!!");
-});
-
 //Método PATCH
 server.patch("/hola", (request, response) => {
     response.write("Estamos en Home en el método PATCH");
     response.end();
 });
+
+//Prender el Servidor (lo vamos a "escuchar")
+server.listen(8080, () => {
+    console.log("Nuestro servidor está prendido!!");
+});
+
+
 
 /*
 *3 endpioints en la ruta /hola ->[POST, DELETE PATCH]
