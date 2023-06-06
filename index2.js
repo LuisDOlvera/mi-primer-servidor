@@ -1,5 +1,6 @@
 const express = require("express");
 const server = express();
+const fsPromises = require("fs/promises");
 
 /*
     app de express ->
@@ -32,9 +33,17 @@ server.patch("/hola", (request, response) => {
     response.end();
 });
 
+
+
 //Prender el Servidor (lo vamos a "escuchar")
 server.listen(8080, () => {
     console.log("Nuestro servidor está prendido!!");
+});
+
+//hacwer un endpoint que lea un archivo y nos lo responda.
+server.get("/archivo", async (request, response) => {
+    const data = await fsPromises.readFile("./archivo_a_leer.txt", "utf-8")
+    response.send(data)
 });
 
 
